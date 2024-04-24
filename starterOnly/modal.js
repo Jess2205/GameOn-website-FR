@@ -7,118 +7,37 @@ function editNav() {
   }
 }
 
-function validate(){
-  var msg ='';
-   
-       if(document.getElementById('form').pseudo.value == '' || document.getElementById('form').mdp.value == '')
-       { msg += 'Pouet';
-       alert(msg);return false;
-       }
 
-       else
-           return true;
-   
-  }
 
 // DOM Elements
 
-/* Le background de la page */
+/* Ouverture et fermeture de la boite de dialogue */
 const modalbg = document.querySelector(".bground");
-console.log (modalbg)
-
 /* Bouton "je m'inscris" */
 const modalBtn = document.querySelectorAll(".modal-btn");
-console.log (modalBtn)
-
 /* L'endroit où l'utilisateur renseigne ses données */
 const formData = document.querySelectorAll(".formData");
-console.log (formData)
-
-/* Le body du formulaire */
+/* Le corps du formulaire */
 const modalBody = document.querySelectorAll(".modal-body");
-console.log (modalBody)
-
 /* Bouton "Close" X */
-const closeFormulaire = document.querySelectorAll(".close");
-
-/* Les éléments du formulaire */
-
+const closeForm = document.querySelectorAll(".close");
+/* Boite de dialogue de remerciement */
+const modalThanks = document.querySelectorAll(".modal_thanks");
 /* Le type de formulaire */
 const form = document.querySelectorAll(".reserve");
-console.log (form)
-
-/* L'endroit où l'on renseigne le prénom */
-const firstName = document.getElementById("first");
-console.log (firstName)
-/* L'endroit où l'on renseigne le message d'erreur du prénom érroné */
-const firstNameX = document.getElementById("first_error");
-console.log (firstNameX)
-
-/* L'endroit où l'on renseigne le nom */
-const lastName = document.getElementById("last");
-console.log (lastName)
-/* L'endroit où l'on renseigne le message d'erreur du nom érroné */
-const lastNameX = document.getElementById("last_error");
-console.log (lastNameX)
-
-/* L'endroit où l'on renseigne l'email */
-const email = document.getElementById("email");
-console.log (email)
-/* L'endroit où l'on renseigne le message d'erreur de l'email érroné */
-const emailX = document.getElementById("email_error");
-console.log (emailX)
-
-/* L'endroit où l'on renseigne la date de naissance */
-const birthdate = document.getElementById("birthdate");
-console.log (birthdate)
-/* L'endroit où l'on renseigne le message d'erreur de la date érronée */
-const birthdateX = document.getElementById("birthdate_error");
-console.log (birthdateX)
-
-/* L'endroit où l'on renseigne le nombre de tournois */
-const quantity = document.getElementById("quantity"); 
-console.log (quantity)
-/* L'endroit où l'on renseigne le message d'erreur du nombre de tournois */
-const quantityX = document.getElementById("quantity_error");
-console.log (quantityX)
-
 /* L'endroit où l'on renseigne la ville */
-const city = document.getElementsByName("location");
-for (let i = 0 ; i<city.length ; i++){
-  console.log (city [i]);
-}
-
-/* L'endroit où l'on renseigne le message "location manquante" */
-const cityX = document.getElementById("location_manquant");
-console.log (cityX)
-
-
-/* L'endroit où l'on valide les conditions*/
-const checkbox1 = document.getElementById("checkbox1");
-console.log (checkbox1)
-/* L'endroit où l'on renseigne si on veut être prévenu */
-const checkbox2 = document.getElementById("checkbox2");
-console.log (checkbox2)
-/* L'endroit où le message d'erreur des conditions manquantes */
-const conditionX = document.getElementById("condition_error");
-console.log (conditionX)
-
+const checkLocation = document.getElementsByName("input[name='location']");
 /* Bouton de validation */
-const validation = document.getElementById("btn-envoie");
-console.log (validation)
-/* Endroit où le message de validation apparait quand OK */
-const validation_ok = document.getElementById("validation-ok");
-console.log (validation_ok)
-
-/* Fermer le formulaire */
-const fermer = document.getElementById("fermer");
-
-/* Bouton input "envoyer"*/
-const submitBtn = document.querySelector(".btn-submit");
-console.log (submitBtn)
-/* L'endroit où apparait le message de confirmation de l'envoie */
-const confirmation = document.getElementById("confirmation");
-console.log (confirmation)
+const btnSubmit = document.getElementById("btn-submit");
+const firstName = document.getElementById("first");
+const lastName = document.getElementById("last");
+const email = document.getElementById("email");
+const birthdate = document.getElementById("birthdate");
+const quantity = document.getElementById("quantity"); 
+const checkbox1 = document.getElementById("checkbox1");
+const conditionCheckboxError = document.getElementById("generalCheckboxError");
+const modalConfirmation = document.querySelector(".formConfirmation");
+const btnCloseConfirm = document.querySelector(".btn-close-confirm");
 
 
 
@@ -130,139 +49,235 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal form and not reset datas in the form
+// close modal form
 function closeModal() {
   modalbg.style.display = "none";
   form.reset();
 }
 
-// Validation du formulaire si tout est Ok//
-function validateForm(event) {
-  event.preventDefault();
-  event.stopPropagation();
-  if (
-    !validateFirstName() &&
-    !validateLastName() &&
-    !validateEmail() &&
-    !validateCity() &&
-    !validateQuantity() &&
-    !validateBirthdate()
-  )
-
-    confirmation.style.fontSize = "30px";
-    confirmation.style.textAlign = "center";
-    confirmation.style.marginBottom ="50%";
-    confirmation.style.marginTop ="50%";
-    reserve.style.display = "none";
-  
-    fermer.style.display = "block";
-    
-    submitBtn.style.display = "none";
-    
-    confirmation.style.display = "flex";
-    
-    
-    fermer.addEventListener("click", fermerModal);
-    
-  }
-  
-    return;
-
-
-// Message de remerciement si formulaire validé//
-
-function remerciement() {
-  form.innerHTML = /*html*/ `<div class ="content"> 
-  Merci pour votre <br>inscription</div>
-  <button class="btn-submit" onclick= "closeModal()"> 
-  Fermer </button>`;
+  //Condition regex pour le contrôle du champs firstName :
+  function firstNameControle () {     
+            
+    if (/^([A-Za-z]{2,20})?([-]{0,1})?([A-Za-z]{2,20})$/.test(firstName.value)){
+        firstName.style.border = "solid 2px green";
+        firstNameError.textContent = "Champ Valide";
+        firstNameError.style.color = 'green';
+        firstNameError.style.fontSize = '15px';
+        firstNameError.style.marginBottom = '5px';
+        return true;
+    } 
+                    
+    else {
+        firstName.style.border = "solid 2px red";
+        firstNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+        firstNameError.style.color = 'red';
+        firstNameError.style.fontSize = '15px';
+        firstNameError.style.marginBottom = '5px';
+        return false;
+    }
+            
 }
 
-// Les messages d'erreurs //
 
-/* Validation du nom */
+//AddEventListener pour le controle de l'input firstName :
+firstName.addEventListener('change', () => {
+    firstNameControle();
+});
 
-function validate (event) {
-  
-  if (firstName.value.trim() === '' || firstName.value.length <2)  // condition  si le prénom est vide ou inf a 2 caractères
+//Condition regex pour le contrôle du champs lastName :
+function lastNameControle () {     
 
-  {
-    firstNameX.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-    firstNameX.style.fontSize = "14px";
-    firstNameX.style.color="red";
+  if (/^([A-Za-z]{2,20})?([-]{0,1})?([A-Za-z]{2,20})$/.test(lastName.value)) {
+      lastName.style.border = "solid 2px green";
+      lastNameError.textContent = "Champ Valide";
+      lastNameError.style.color = 'green';
+      lastNameError.style.fontSize = '15px';
+      lastNameError.style.marginBottom = '5px';
+      return true;
   } 
-  else{
-    firstNameX.innerHTML  = "";
+                          
+  else {
+      lastName.style.border = "solid 2px red";
+      lastNameError.textContent = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      lastNameError.style.color = 'red';
+      lastNameError.style.fontSize = '15px';
+      lastNameError.style.marginBottom = '5px';
+      return false;
   }
-  if (lastName.value.trim() === '' || lastName.value.length <2)  // condition  si le nom est vide ou inf a 2 caractères
+                  
+}
 
-  {
-    lastNameX.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-    lastNameX.style.fontSize = "14px";
-    lastNameX.style.color="red";
+
+//AddEventListener pour le controle de l'input lastName :
+lastName.addEventListener('change', () => {
+  lastNameControle();
+});
+
+
+//Condition regex pour le contrôle du champs email :
+function emailControle () {     
+                
+  if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)) {
+      email.style.border = "solid 2px green";
+      emailError.textContent = "Champ Valide";
+      emailError.style.fontSize = '15px';
+      emailError.style.color = 'green';
+      emailError.style.marginBottom = '5px';
+      return true;
   } 
-  else{
-    lastNameX.innerHTML  = "";
+                  
+  else {
+      email.style.border = "solid 2px red";
+      emailError.textContent = "Veuillez rentrer une adresse email valide";
+      emailError.style.fontSize = '15px';
+      emailError.style.color = 'red';
+      emailError.style.marginBottom = '5px';
+      return false;
+  }                
+}
+
+//AddEventListener pour le controle de l'input email :
+email.addEventListener('change', () => {
+  emailControle();
+});
+
+
+
+ //Condition regex pour le contrôle du champs date :
+ function birthdateControle () {     
+                
+  if (/^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/.test(birthdate.value)) {
+      birthdate.style.border = "solid 2px green";
+      birthdateError.textContent = "Champ Valide";
+      birthdateError.style.fontSize = '15px';
+      birthdateError.style.marginBottom = '10px';
+      birthdateError.style.color = 'green';
+      return true;
+  } 
+      
+  else {
+      birthdate.style.border = "solid 2px red";
+      birthdateError.textContent = "Vous devez entrer votre date de naissance.";
+      birthdateError.style.fontSize = '15px';
+      birthdateError.style.marginBottom = '10px';
+      birthdateError.style.color = 'red';
+      return false;
+  }
+              
+}
+
+//AddEventListener pour le controle de l'input birthdate :
+birthdate.addEventListener('change', () => {
+  birthdateControle();
+});
+
+      
+  //Condition regex pour le contrôle du champs quantity :
+  function quantityControle () {     
+                    
+  if (quantity.value >= 0)  {
+      quantity.style.border = "solid 2px green";
+      quantityError.textContent = "Champ Valide";
+      quantityError.style.color = "green";
+      quantityError.style.fontSize = "15px";
+      quantityError.style.marginBottom = '10px';
+      return true;
   }
   
-  // verification de l'adresse mail grace au regex mailCaractere
-  if(email.test(email.value)== true){
-    emailX.innerHTML  = "";
+                  
+  else {
+      quantity.style.border = "solid 2px red";
+      quantityError.textContent = "Vous devez indiquer un nombre de tournois";
+      quantityError.style.fontSize = '15px';
+      quantityError.style.marginBottom = '10px';
+      quantityError.style.color = 'red';
+      return false;
   }
-  else{
-    emailX.innerHTML  =" Veuillez entrer un email correct";
-    emailX.style.fontSize = "14px";
-    emailX.style.color="red";
-    
-  }
+}  
 
-  /* Pour le nombre de concours, une valeur numérique est saisie.*/
-   // condition si vide ou si valeur different d'un nombres
-   if (quantity.value === '' || quantity.test(quantity.value) == false){
-    quantityX.innerHTML  = "Veuillez entrer le nombre de tournois participé";
-    quantityX.style.fontSize = "14px";
-    quantityX.style.color="red";
-    
-  }else{
-    quantityX.innerHTML  = "";
-  }
-  
-  /* Validation de la checkbox */
-  // verification si une des box est coché.
-  
-  if ((location1.checked)|| (location2.checked) || (location3.checked)
-    ||(location4.checked) ||(location5.checked) ||(location6.checked)) {
-    location_m.innerHTML  = "";
-  }
-  else{
-    cityX.innerHTML  = "Vous devez choisir une option";
-    cityX.style.fontSize = "14px";
-    cityX.style.color="red"; 
-    
-  }
 
-   /* Validation des conditions */
 
-  if(checkbox1.checked){
-    conditionX.innerHTML  = "";
-  }
-  else{
-    conditionX.innerHTML  ="Vous devez vérifier que vous acceptez les termes et conditions";
-    conditionX.style.fontSize = "14px";
-    conditionX.style.color="red";  
-  }
-
-   /* Validation de la date de naissance */
-   //Si vide ou caractère autre que des chiffres/nombres 
+//AddEventListener pour le controle de l'input quantity :
+quantity.addEventListener('change', () => {
+  quantityControle();
+});
    
-   if (birthdate.value ==='' || (birthdateValidation.test(birthdate.value) == false)){
-    birthdateX.innerHTML = "Vous devez entrer votre date de naissance";
-    birthdateX.style.fontSize = "14px";
-    birthdateX.style.color="red";
+
+//Condition pour le contrôle du champs check-box location :
+function checkboxLocationControl() {
+
+  for(let i = 0; i < checkLocation.length; i++) {
+
+  if  (checkLocation[i].checked) {
+      locationError.textContent ='Champ Valide';
+      locationError.style.color = 'green';
+      locationError.style.fontSize = '15px';
+      locationError.style.marginBottom = '10px';
+      return true;
+    }
+
+  }
     
-  }
-  else{
-    birthdateX.innerHTML = "";
-  }
- 
+    
+    locationError.textContent ='Champ Invalide';
+    locationError.style.color = 'red';
+    locationError.style.fontSize = '15px';
+    locationError.style.marginBottom = '10px';
+    return false;
+
 }
+
+
+//AddEventListener pour le controle de l'input checkLocation :
+checkLocation.forEach((chekLocationInput) => chekLocationInput.addEventListener('change', function() {
+  checkboxLocationControl(); 
+}));
+
+
+
+//Condition pour le contrôle du champs checkbox :
+function conditionCheckboxControle() {
+  if(checkbox1.checked ) {                  
+      checkbox1.style.border = "solid 2px green";
+      conditionCheckboxError.textContent = "Champs Valide";
+      conditionCheckboxError.style.color = "green";
+      conditionCheckboxError.style.fontSize = "15px";
+      conditionCheckboxError.style.marginBottom = '10px';
+      return true;
+
+  } else {
+      checkbox1.style.border = "solid 2px red";
+      conditionCheckboxError.textContent = "Merci d'accepter les conditions d'utilisations";
+      conditionCheckboxError.style.fontSize = '15px';
+      conditionCheckboxError.style.marginBottom = '10px';
+      conditionCheckboxError.style.color = 'red';
+      return false;
+  }
+};
+
+
+//AddEventListener pour le controle de l'input checkbox1 :
+checkbox1.addEventListener('change', () => {
+  conditionCheckboxControle();
+});
+
+          
+
+// Fonction pour ouvrir la modale de confirmation d'inscription :
+
+btnSubmit.addEventListener('click', e => {
+  e.preventDefault();
+  
+  if(firstNameControle() && lastNameControle() && emailControle() && birthdateControle() && quantityControle() && checkboxLocationControl() && conditionCheckboxControle()){
+      modalConfirmation.style.display = "block";
+      form.style.display = 'none';
+  } else {
+      alert('Merci de remplir correctement votre inscription.');
+  }
+})
+
+// Fonction pour fermer la modale de confirmation d'inscription
+
+btnCloseConfirm.addEventListener("click", () => {
+  window.location.reload();
+});
