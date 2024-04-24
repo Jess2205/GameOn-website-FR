@@ -119,11 +119,7 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal form and not reset datas in the form
-function closeModal() {
-  modalbg.style.display = "none";
-  form.reset();
-}
+
 
 // Validation du formulaire si tout est Ok//
 function validateForm(event) {
