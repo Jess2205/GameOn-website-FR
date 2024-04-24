@@ -7,18 +7,7 @@ function editNav() {
   }
 }
 
-function validate(){
-  var msg ='';
-   
-       if(document.getElementById('form').pseudo.value == '' || document.getElementById('form').mdp.value == '')
-       { msg += 'Pouet';
-       alert(msg);return false;
-       }
 
-       else
-           return true;
-   
-  }
 
 // DOM Elements
 
