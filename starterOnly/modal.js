@@ -16,12 +16,11 @@ const formData = document.querySelectorAll(".formData");
 const modalBody = document.querySelectorAll(".modal-body");
 /* Bouton "Close" X */
 const closeForm = document.querySelectorAll(".close");
-/* Boite de dialogue de remerciement */
-const modalThanks = document.querySelectorAll(".modal_thanks");
 /* Le type de formulaire */
 const form = document.querySelectorAll(".reserve");
 /* Bouton de validation */
 const btnSubmit = document.getElementById("submit");
+/* Champs du formulaire */
 const firstName = document.getElementById("first");
 const lastName = document.getElementById("last");
 const email = document.getElementById("email");
@@ -31,10 +30,9 @@ const checkLocation = document.getElementsByName("location");
 const locationError = document.querySelector("#locationError"); 
 const checkbox1 = document.getElementById("checkbox1");
 const conditionCheckboxError = document.getElementById("generalCheckboxError");
+/* Boite de dialogue de confirmation */
 const modalConfirmation = document.querySelector(".formConfirmation");
 const btnCloseConfirm = document.querySelector(".btn-close-confirm");
-
-
 
 
 // launch modal event
@@ -58,15 +56,12 @@ btnCloseConfirm.addEventListener("click", () => {
  
 });
 
-  //Condition regex pour le contrôle du champs firstName :
+//Condition regex pour le contrôle du champs firstName :
   function firstNameControle () {     
             
     if (/^([A-Za-z]{2,20})?([-]{0,1})?([A-Za-z]{2,20})$/.test(firstName.value)){
-        firstName.style.border = "solid 2px green";
-        firstNameError.textContent = "Champ Valide";
-        firstNameError.style.color = 'green';
-        firstNameError.style.fontSize = '15px';
-        firstNameError.style.marginBottom = '5px';
+        firstName.style.border = "solid 2px";
+        firstNameError.textContent = "";
         return true;
     } 
                     
@@ -81,7 +76,6 @@ btnCloseConfirm.addEventListener("click", () => {
             
 }
 
-
 //AddEventListener pour le controle de l'input firstName :
 firstName.addEventListener('change', () => {
     firstNameControle();
@@ -91,11 +85,8 @@ firstName.addEventListener('change', () => {
 function lastNameControle () {     
 
   if (/^([A-Za-z]{2,20})?([-]{0,1})?([A-Za-z]{2,20})$/.test(lastName.value)) {
-      lastName.style.border = "solid 2px green";
-      lastNameError.textContent = "Champ Valide";
-      lastNameError.style.color = 'green';
-      lastNameError.style.fontSize = '15px';
-      lastNameError.style.marginBottom = '5px';
+      lastName.style.border = "solid 2px";
+      lastNameError.textContent = "";
       return true;
   } 
                           
@@ -110,7 +101,6 @@ function lastNameControle () {
                   
 }
 
-
 //AddEventListener pour le controle de l'input lastName :
 lastName.addEventListener('change', () => {
   lastNameControle();
@@ -121,12 +111,9 @@ lastName.addEventListener('change', () => {
 function emailControle () {     
                 
   if (/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)) {
-      email.style.border = "solid 2px green";
-      emailError.textContent = "Champ Valide";
-      emailError.style.fontSize = '15px';
-      emailError.style.color = 'green';
-      emailError.style.marginBottom = '5px';
-      return true;
+    email.style.border = "solid 2px";
+    emailError.textContent = "";
+    return true;
   } 
                   
   else {
@@ -146,15 +133,12 @@ email.addEventListener('change', () => {
 
 
 
- //Condition regex pour le contrôle du champs date :
- function birthdateControle () {     
+//Condition regex pour le contrôle du champs date :
+function birthdateControle () {     
                 
   if (/^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/.test(birthdate.value)) {
-      birthdate.style.border = "solid 2px green";
-      birthdateError.textContent = "Champ Valide";
-      birthdateError.style.fontSize = '15px';
-      birthdateError.style.marginBottom = '10px';
-      birthdateError.style.color = 'green';
+      birthdate.style.border = "solid 2px";
+      birthdateError.textContent = "";
       return true;
   } 
       
@@ -175,20 +159,15 @@ birthdate.addEventListener('change', () => {
 });
 
       
-  //Condition regex pour le contrôle du champs quantity :
-  
-  function quantityControle () {     
+//Condition regex pour le contrôle du champs quantity :
+function quantityControle () {     
                     
   if (quantity.value !=="")  {
-      quantity.style.border = "solid 2px green";
-      quantityError.textContent = "Champ Valide";
-      quantityError.style.color = "green";
-      quantityError.style.fontSize = "15px";
-      quantityError.style.marginBottom = '10px';
+      quantity.style.border = "solid 2px";
+      quantityError.textContent = "";
       return true;
   }
-  
-                  
+                   
   else {
       quantity.style.border = "solid 2px red";
       quantityError.textContent = "Vous devez indiquer un nombre de tournois";
@@ -198,8 +177,6 @@ birthdate.addEventListener('change', () => {
       return false;
   }
 }  
-
-
 
 //AddEventListener pour le controle de l'input quantity :
 quantity.addEventListener('change', () => {
@@ -213,20 +190,16 @@ function checkboxLocationControl() {
    for(let i = 0; i < checkLocation.length; i++) {
 
      if(checkLocation[i].checked) {
-       locationError.textContent ='Champ Valide';
-       locationError.style.color = 'green';
-       locationError.style.fontSize = '15px';
-       locationError.style.marginBottom = '10px';
+       locationError.textContent ='';
        return true;
      }
 
    }
-
-   locationError.textContent ='Vous devez choir une option';
-   locationError.style.color = 'red';
-   locationError.style.fontSize = '15px';
-   locationError.style.marginBottom = '10px';
-   return false;
+      locationError.textContent ='Vous devez choir une option';
+      locationError.style.color = 'red';
+      locationError.style.fontSize = '15px';
+      locationError.style.marginBottom = '10px';
+      return false;
 
  }
 
@@ -237,17 +210,11 @@ function checkboxLocationControl() {
  }));
  
 
-
-
-
 //Condition pour le contrôle du champs checkbox :
 function conditionCheckboxControle() {
   if(checkbox1.checked ) {                  
-      checkbox1.style.border = "solid 2px green";
-      conditionCheckboxError.textContent = "Champs Valide";
-      conditionCheckboxError.style.color = "green";
-      conditionCheckboxError.style.fontSize = "15px";
-      conditionCheckboxError.style.marginBottom = '10px';
+      checkbox1.style.border = "solid 2px";
+      conditionCheckboxError.textContent = "";
       return true;
 
   } else {

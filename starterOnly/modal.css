@@ -56,12 +56,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-}
-
-.topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -209,7 +204,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
-.formData[data-error]::after {
+.formData[data-error]::after{
   content: attr(data-error);
   font-size: 0.4em;
   color: #e54858;
@@ -221,6 +216,8 @@ input {
   opacity: 0;
   transition: 0.3s;
 }
+
+
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
@@ -237,7 +234,7 @@ input[data-error]::after {
 .checkbox2-label {
   position: relative;
   margin-left: 36px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
 }
 .checkbox-label .checkbox-icon,
