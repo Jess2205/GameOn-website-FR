@@ -219,7 +219,7 @@ function conditionCheckboxControle() {
 
   } else {
       checkbox1.style.border = "solid 2px red";
-      conditionCheckboxError.textContent = "Merci d'accepter les conditions d'utilisations";
+      conditionCheckboxError.textContent = "Vous devez vérifier que vous acceptez les termes et conditions.";
       conditionCheckboxError.style.fontSize = '15px';
       conditionCheckboxError.style.marginBottom = '10px';
       conditionCheckboxError.style.color = 'red';
