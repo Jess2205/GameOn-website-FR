@@ -9,6 +9,17 @@ function editNav() {
   
 }
 
+function editNavConf() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+   
+  } else {
+    x.className = "topnav";
+  }
+  
+}
+
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 console.log (modalbg)

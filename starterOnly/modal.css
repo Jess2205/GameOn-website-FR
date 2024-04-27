@@ -30,14 +30,29 @@ img {
   padding-right: 1rem;
 }
 
-.topnav {
+.topnav  {
   overflow: hidden;
   margin: 3.5%;
 }
+
+.main-navbar-confirmation  {
+  overflow: hidden;
+  margin-right: 150px;
+  background-color: #ccc;
+  size: 20px;
+  display: none;
+ 
+}
+
+.logo-form {
+  width: 20%;
+  display: none;
+}
+
 .header-logo {
     float: left;
 }
-.main-navbar {
+.main-navbar  {
     float: right;
 }
 .topnav a {
@@ -52,9 +67,30 @@ img {
   font-family: Roboto, sans-serif;
 }
 
+.main-navbar-confirmation a {
+  float: left;
+  display: flex;
+  color: #000000;
+  text-align: center;
+  padding: 12px 12px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+
+
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
+  border-radius: 15px;
+  text-decoration: underline;
+}
+
+.main-navbar-confirmation a:hover {
+  background-color:#ff0000;
+  color:#ffffff;
   border-radius: 15px;
   text-decoration: underline;
 }
@@ -63,14 +99,77 @@ img {
   display: none;
 }
 
+.main-navbar-confirmation .icon-confirmation {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    color: #f00;
+    align-items: center;
+  }
+
+  .main-navbar-confirmation a {display: none;}
+  .main-navbar-confirmation a.icon-confirmation {
+    display: flex; 
+    color: #f00;
+    background-color: rgb(50, 39, 39);
+    background-color: white;
+  }
+
+  .icon-confirmation {
+   display: flex;
+   width: 100%;
+   position: relative;
+   bottom: 35px;
+   right: 20px;
+  
+  }
+  
+  .logo-ppal {
+    width: 60%;
+  }
+
+  
+  .logo-form {
+    width: 35%;
+    display:flex;
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+  
+
+  #myTopnav {
+    margin-top: 40px;
+    padding-left: 16px;
     
   }
-}
+  
+  .main-navbar-confirmation  {
+    margin-top: -10px;
+    margin-right: 0;
+    background-color:white;
+    size: 20px;
+    display: block;
+    height: 60px;
+    align-items: end;
+   
+   
+  }
+
+  .close {
+    position: relative;
+    padding-top: 70px;
+    padding-right: 15px;
+    width: 13px;
+   
+  }
+    
+  }
+
 
 @media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
@@ -84,6 +183,11 @@ img {
     display: block;
     text-align: left;
   }
+
+  .logo-ppal {
+    display: block;
+    width: 50%;
+  }
 }
 
 
@@ -94,6 +198,20 @@ img {
     float: right;
     display: block;
     margin-top: -15px;
+  }
+
+  .main-navbar-confirmation a {display: none;}
+  .main-navbar-confirmation a.icon-confirmation {
+    float: right;
+    display: block;
+    
+    background-color:white;
+    top: 100%;
+    width: 100%;
+  }
+
+  .logo-confirmation {
+    display: block;
   }
 } 
 
@@ -306,6 +424,21 @@ input[data-error]::after {
   transform: scale(0.7);
   
 }
+
+.close-form {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+  display: none;
+  
+}
+
+
 .close:before,
 .close:after {
   position: absolute;
@@ -487,6 +620,8 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    padding: 0;
+    margin-bottom: 20px;
   }
   .hero-content::after {
     content: unset;
@@ -495,16 +630,26 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 42px;
+    font-weight: 500;
     white-space: normal;
   }
+
   .hero-text {
-    width: unset;
-    font-size: 1.5rem;
+    width: 85%;
+    font-size:14px;
+    font-weight: 400;
+    margin-top: 20px;
   }
   .hero-img img {
+    width: 100%;
     border-radius: 10px;
     margin-top: 40px;
+    margin-top: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -514,6 +659,7 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+    margin-top: 5px;
   }
 }
 
@@ -529,24 +675,44 @@ footer {
 
  /* ModaleConfirm */
   
+ .logo-confirmation {
+  display: none;
+ }
+
  .formConfirmation{
   width: 100%;
+  justify-content: center;
   text-align: center;
   align-items: center;
   font-size: 40px;
   font-weight: normal;
-  height: 700px;
-  padding-top: 200px;
+  height: auto;
+  background-color:#232323;
+  margin-top:0;
+  padding-top: 0;
   display: none;
-  margin-top: 150px;
+  height: auto;
+ 
+ 
   
 }
+
+.confirmation-txt {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding-top:300px;
+  background-color: #232323;
+  padding-bottom: 400px;
+  font-size: 36px;
+}
+
 
 .btn-close-confirm{
   background: #fe142f;
   display: block;
-  margin: 0 auto;
-  margin-top: 330px;
+  margin: 0 auto; 
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;

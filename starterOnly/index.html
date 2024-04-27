@@ -13,9 +13,9 @@
     
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
+    <div class="topnav responsive" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img class="logo-ppal"  alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
       
@@ -55,14 +55,27 @@
       <div class="bground">
         <div class="content">
           <span class="close" onclick="closeModal ()"></span>
-
+         
+          <div class="main-navbar-confirmation">
+            <img class="logo-form"  alt="logo" src="Logo.png" width="auto" height="auto" />
+            <div class="main-navbar">
+            <a href="#"><span>Détails de l'évènement</span></a>
+            <a href="#"><span>À propos</span></a>
+            <a href="#"><span>Contact</span></a>
+            <a href="#"><span>Évènements passés</span></a>
+            <a href="javascript:void(0);" class="icon-confirmation" onclick="editNavconf()">
+              <i class="fa fa-bars"></i>
+            </a>
+          </div>
+        </div>
+          
           <!-- modalConfirmation -->
-          <div class="formConfirmation">
-            <span>Merci pour votre inscription</span>
+          <div class="formConfirmation"> 
+            <span class="confirmation-txt">Merci pour<br>votre inscription</span>
             <button class="btn-close-confirm"  type="submit"  value="Fermer" >Fermer</button>
           </div>
           <!-- fin de la modalConfirmation -->
-
+          
           <div class="modal-body">
             <form
               name="reserve"
