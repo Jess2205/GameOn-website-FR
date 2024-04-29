@@ -219,6 +219,12 @@ img {
     margin-top: 40px;
     padding-left: 16px;  
   }
+
+  .reserve {
+    padding: 0;
+    margin: 0;
+  }
+ 
 } 
 
 main {
@@ -553,9 +559,10 @@ input[data-error]::after {
 }
 
 /* custom select end */
+
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .hero-section {
@@ -645,6 +652,8 @@ footer {
 }
 
 @media screen and (max-width: 1003px) {
+  
+  
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -716,6 +725,7 @@ footer {
     font-weight: 200;
     margin-top: 20px; 
   }
+
 }
 
 @media screen and (min-width: 540px) and (max-width: 1003px){
@@ -799,7 +809,7 @@ footer {
     height: 80px;
     align-items: end;
    
-}
+  }
 
   .main-navbar-confirmation a {display: none;}
   .main-navbar-confirmation a.icon-confirmation {
@@ -823,7 +833,7 @@ footer {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
-}
+  }
   
 }
 
@@ -837,4 +847,7 @@ footer {
     width: 100%;
   }
 }
+
+
+
 
