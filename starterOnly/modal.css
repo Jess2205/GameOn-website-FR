@@ -37,6 +37,20 @@ img {
   margin: 3.5%;
 }
 
+.main-navbar-confirmation  {
+  overflow: hidden;
+  margin-right: 150px;
+  background-color: #fff;
+  font-size: 20px;
+  display: none;
+}
+
+.logo-form {
+  width: auto;
+  height: auto;
+  display: none;
+}
+
 .header-logo {
   float: left;   
 }
@@ -62,6 +76,18 @@ img {
   font-family: Roboto, sans-serif;
 }
 
+.main-navbar-confirmation a {
+  float: left;
+  display: flex;
+  color: #000000;
+  text-align: center;
+  padding: 12px 12px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+}
+
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
@@ -69,6 +95,20 @@ img {
   text-decoration: underline;
 }
 
+.main-navbar-confirmation a:hover {
+  background-color:#ff0000;
+  color:#ffffff;
+  border-radius: 15px;
+  text-decoration: underline;
+}
+
+.topnav .icon {
+  display: none; 
+}
+
+.main-navbar-confirmation .icon-confirmation {
+  display: none;
+}
 
 .topnav .icon {
   display: none; 
@@ -83,6 +123,22 @@ img {
     align-items: center;
   }
   
+  .main-navbar-confirmation a {display: none;}
+  .main-navbar-confirmation a.icon-confirmation {
+    display: flex; 
+    color: #f00;
+    margin: 0;
+    padding: 0;
+    background-color: white; 
+  }
+
+  .icon-confirmation {
+   display: flex;
+   width: 100%;
+   position: relative;
+   right: 20px; 
+  }
+
   .logo-form {
     width: 35%;
     display:flex;
@@ -94,6 +150,16 @@ img {
   #myTopnav {
     margin-top: 40px;
     padding-left: 16px;  
+  }
+
+  .main-navbar-confirmation  {
+    margin-top: -10px;
+    margin-right: 0;
+    background-color:#fff;
+    font-size: 20px;
+    display: block;
+    height: 80px;
+    align-items: end;
   }
 
   .close {
@@ -121,7 +187,8 @@ img {
 
   .logo-ppal {
     display: block;
-    width: 70%;
+    width: 100%;
+    height: 19px;
   }
 }
 
@@ -133,9 +200,19 @@ img {
     margin-top: -15px;
   }
 
+  .main-navbar-confirmation a {display: none;}
+  .main-navbar-confirmation a.icon-confirmation {
+    float: right;
+    display: block;
+    background-color:white;
+    top: 100%;
+    width: 100%;
+  }
+
   .logo-ppal {
     display: block;
-    width: 70%;  
+    width: 100%;
+    height: 19px;  
   }
 
   #myTopnav {
@@ -180,11 +257,6 @@ main {
 
 /* Modal form */
 
-.logo-form {
-  width: auto;
-  height: auto;
-  display: none;
-}
 
 .button {
   background: #fe142f;
@@ -677,36 +749,7 @@ footer {
  .logo-confirmation {
   display: none;
  }
- .main-navbar-confirmation  {
-  overflow: hidden;
-  margin-right: 150px;
-  background-color: #fff;
-  font-size: 20px;
-  display: none;
-}
-
-.main-navbar-confirmation .icon-confirmation {
-  display: none;
-}
-
-.main-navbar-confirmation a {
-  float: left;
-  display: flex;
-  color: #000000;
-  text-align: center;
-  padding: 12px 12px;
-  margin: 5px;
-  text-decoration: none;
-  font-size: 20px;
-  font-family: Roboto, sans-serif;
-}
-
-.main-navbar-confirmation a:hover {
-  background-color:#ff0000;
-  color:#ffffff;
-  border-radius: 15px;
-  text-decoration: underline;
-}
+ 
  .formConfirmation {
   width: 100%;
   justify-content: center;
@@ -755,7 +798,8 @@ footer {
     display: block;
     height: 80px;
     align-items: end;
-  }
+   
+}
 
   .main-navbar-confirmation a {display: none;}
   .main-navbar-confirmation a.icon-confirmation {
@@ -772,6 +816,14 @@ footer {
    position: relative;
    right: 20px; 
   }
+
+  .content {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
   
 }
 
