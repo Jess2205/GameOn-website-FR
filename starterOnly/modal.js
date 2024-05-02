@@ -21,45 +21,32 @@ function editNavConf() {
 
 
 // DOM Elements
+
 const modalbg = document.querySelector(".bground");
-console.log (modalbg)
 const modalBtn = document.querySelectorAll(".modal-btn");
-console.log (modalBtn)
 const formData = document.querySelectorAll(".formData");
 /* Le corps du formulaire */
 const modalBody = document.querySelectorAll(".modal-body");
 /* Bouton "Close" X */
 const closeForm = document.querySelectorAll(".close");
-console.log (closeForm)
 /* Le type de formulaire */
 const form = document.querySelectorAll(".reserve");
 /* Bouton de validation */
 const btnSubmit = document.getElementById("submit");
-console.log (btnSubmit)
 /* Champs du formulaire */
 const firstName = document.getElementById("first");
-console.log(firstName)
 const lastName = document.getElementById("last");
-console.log (lastName)
 const email = document.getElementById("email");
-console.log (email)
 const birthdate = document.getElementById("birthdate");
-console.log (birthdate)
 const quantity = document.getElementById("quantity");
-console.log (quantity)
 const checkLocation = document.getElementsByName("location");
-console.log (checkLocation)
 const locationError = document.querySelector("#locationError");
-console.log (locationError) 
 const checkbox1 = document.getElementById("checkbox1");
-console.log (checkbox1)
 const conditionCheckboxError = document.getElementById("generalCheckboxError");
-console.log (conditionCheckboxError)
+
 /* Boite de dialogue de confirmation */
 const modalConfirmation = document.querySelector(".formConfirmation");
-console.log (modalConfirmation)
 const btnCloseConfirm = document.querySelector(".btn-close-confirm");
-console.log (btnCloseConfirm)
 
 
 // launch modal event
@@ -68,13 +55,11 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  
 }
 
 // close modal form
 function closeModal() {
-  modalbg.style.display = "none";
-  
+  modalbg.style.display = "none";  
 }
 
 // Fonction pour fermer la confirmation
