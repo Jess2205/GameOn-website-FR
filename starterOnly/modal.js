@@ -167,7 +167,7 @@ email.addEventListener('change', () => {
 //Condition regex pour le contrôle du champs date :
 function birthdateControle () {     
                 
-  if (/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/.test(birthdate.value)) {
+  if (/^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/.test(birthdate.value)) {
       birthdate.style.border = "solid 2px";
       birthdateError.textContent = "";
       return true;
