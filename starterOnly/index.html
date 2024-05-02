@@ -82,7 +82,7 @@
             >
               <div
                 class="formData">
-                <p class="text-label">Prénom</p>
+                <label for="first" class="text-label">Prénom</p>
                 <input
                   class="text-control"
                   type="text"
@@ -94,7 +94,7 @@
               </div>
               <div
                 class="formData">
-                <p class="text-label">Nom</p>
+                <label for="last" class="text-label">Nom</p>
                 <input
                   class="text-control"
                   type="text"
@@ -105,7 +105,7 @@
               </div>
               <div
                 class="formData">
-                <p class="text-label">E-mail</p>
+                <label for="email" class="text-label">E-mail</p>
                 <input
                   class="text-control"
                   type="email"
@@ -116,10 +116,10 @@
               </div>
               <div
                 class="formData">
-                <p class="text-label">Date de naissance</p>
+                <label for="birthdate" class="text-label">Date de naissance</p>
                 <input
                   class="text-control"
-                  type="texte"
+                  type="date"
                   id="birthdate"
                   name="birthdate"
                 />
@@ -127,11 +127,11 @@
               </div>
               <div
                 class="formData">
-                <p class="text-label">À combien de tournois GameOn avez-vous déjà participé ?</p>
+                <label for="number" class="text-label">À combien de tournois GameOn avez-vous déjà participé ?</p>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
                 <p id="quantityError"><!-- ci est un message d'erreur --></p>
               </div>
-              <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <label for="number" class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
                 class="formData">
                 <input
