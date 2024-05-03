@@ -115,7 +115,6 @@ function lastNameControle () {
                   
 }
 
-
 //AddEventListener pour le controle de l'input lastName :
 lastName.addEventListener('change', () => {
   lastNameControle();
@@ -168,7 +167,6 @@ function birthdateControle () {
   }
               
 }
-
 
 
 //AddEventListener pour le controle de l'input birthdate :
