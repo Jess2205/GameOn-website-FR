@@ -269,6 +269,53 @@ btnSubmit.addEventListener('click', e => {
   }
 })
 
+if(firstNameControle() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+
+}
+
+if(lastNameControle() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+
+
+if(emailControle() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+  
+
+if(birthdateControle() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+
+if(quantityControle() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+
+if(checkboxLocationControl() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+
+if(conditionCheckboxControlel() ){
+  modalConfirmation.style.display = "block";
+  reserve.style.display = 'none';
+  
+} 
+
+
+
 
 
 
