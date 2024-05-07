@@ -21,7 +21,8 @@ function editNavConf() {
 
 
 // DOM Elements
-
+const myTopnav = document.getElementById("myTopnav");
+const content = document.querySelector(".content");
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
@@ -55,6 +56,10 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  modalbg.style.backgroundColor = "transparent";
+  content.style.marginTop = "100px";
+ 
+
 }
 
 // close modal form
